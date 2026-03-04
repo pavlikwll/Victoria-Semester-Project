@@ -112,7 +112,21 @@ public class HollowMovement : MonoBehaviour
     private void EnemyAttackBehavior()
     {
 
-        if (hollowAttack.attackTarget.GetComponent<Playercontroller>()._starStateAvailable == StarStateAvailable.False)
+        if (hollowAttack == null || hollowAttack.attackTarget == null)
+        {
+            _enemyActionState = EnemyActionState.Idle;
+            return;
+        }
+
+        Playercontroller player = hollowAttack.attackTarget.GetComponent<Playercontroller>();
+
+        if (player == null)
+        {
+            _enemyActionState = EnemyActionState.Idle;
+            return;
+        }
+
+        if (player._starStateAvailable == StarStateAvailable.False)
         {
             hollowAttack.attackTarget = null;
             _enemyActionState = EnemyActionState.Idle;

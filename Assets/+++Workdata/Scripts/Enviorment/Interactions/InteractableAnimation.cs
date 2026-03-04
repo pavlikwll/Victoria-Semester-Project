@@ -14,6 +14,12 @@ public class InteractableAnimation : MonoBehaviour
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        
+        if (animator == null)
+        {
+            return;
+        }
+        
         animationactive = false;
         SetAnimationBool(animationactive);
     }

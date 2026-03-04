@@ -162,6 +162,10 @@ public class Playercontroller : MonoBehaviour
       _pauseAction.performed -= Pause;
       _crouchAction.performed -= Crouch;
       //Unsubscribing from InputActions
+      _inputSystemActions.Player.Disable();
+      _inputSystemActions.UI.Disable();
+      _inputSystemActions.Disable();
+
    }
    #endregion
 

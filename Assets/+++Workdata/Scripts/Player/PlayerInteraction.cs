@@ -21,7 +21,5 @@ public class PlayerInteraction : MonoBehaviour
       if (interactableObject == null) return;
       
       interactableObject.onInteract?.Invoke();
-      
-      Debug.Log("Interacting with: " + interactableObject.name);
    }
 }
