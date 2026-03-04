@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public class PlayerPlatformHandler : MonoBehaviour
+{
+    [SerializeField]private OneWayPlatformBehaviour _oneWayPlatformBehaviour;
+
+    public void SetOneWayEffector(OneWayPlatformBehaviour currentOneWayPlatformBehaviour)
+    {
+        _oneWayPlatformBehaviour = currentOneWayPlatformBehaviour;
+    }
+
+    public void TryDisableOneWayEffector()
+    {
+        if (_oneWayPlatformBehaviour == null) return;
+        _oneWayPlatformBehaviour.DisableEffector();
+        _oneWayPlatformBehaviour = null;
+    }
+    
+}

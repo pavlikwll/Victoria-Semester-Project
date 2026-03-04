@@ -1,0 +1,216 @@
+using System;
+using UnityEngine;
+using UnityEngine.Events;
+
+
+public enum EnemyMovementState{Idle, Move}
+public enum EnemyActionState {Idle, Attack}
+
+public class HollowMovement : MonoBehaviour
+{
+    
+    
+    #region Variables
+
+    private Animator _animator;
+    private Rigidbody2D _rb;
+    private float _moveSpeed;
+    [SerializeField]private float _facingDirection;
+    [SerializeField]private EnemyMovementState _enemyMovementState;
+    [SerializeField]private EnemyActionState _enemyActionState;
+    [SerializeField]private Vector2 wallCheckStart;
+    [SerializeField]private float enemyWallDetection;
+    [SerializeField]private LayerMask groundAndWallLayerMask;
+    [SerializeField]private HollowAttack hollowAttack;
+    [SerializeField]private float enemyAttackRange;
+    private float _enemyMovementTimer;
+    private float _enemyIdleTime;
+    private float _enemyAttackTimer;
+    private float _enemyAttackTime;
+    
+
+    #endregion
+    
+    
+    
+    #region Unity Methods
+
+    private void Awake()
+    {
+        _animator = GetComponentInChildren<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
+        _facingDirection = 1;
+        _enemyMovementState = EnemyMovementState.Idle;
+        _enemyActionState = EnemyActionState.Idle;
+        _enemyMovementTimer = 3;
+        _enemyIdleTime = 0;
+        _moveSpeed = 5;
+        _enemyAttackTime = 0;
+        _enemyAttackTimer = 3;
+
+
+
+    }
+
+    private void FixedUpdate()
+    {
+        
+        
+        if (_enemyActionState == EnemyActionState.Idle)
+        {
+            EnemyIdleBehavior();
+        }
+
+        if (_enemyActionState == EnemyActionState.Attack)
+        {
+            EnemyAttackBehavior();
+        }
+
+        MovementValueAnimator();
+        
+            
+        
+
+        
+        
+        
+        
+       
+        
+        
+    }
+
+    #endregion
+
+    #region Methods
+
+    private void EnemyIdleBehavior()
+    {
+        _enemyIdleTime  += Time.deltaTime;
+        if (!RayCastWallCheck())
+        {
+            Flip();
+        }
+        
+        if (_enemyIdleTime >= _enemyMovementTimer)
+            if (_enemyMovementState == EnemyMovementState.Idle)
+            {
+                _enemyMovementState = EnemyMovementState.Move;
+                _enemyIdleTime = 0;
+            }
+            else
+            {
+                _enemyMovementState = EnemyMovementState.Idle;
+                _enemyIdleTime = 0;
+            }
+        if (_enemyMovementState == EnemyMovementState.Move)
+            _rb.linearVelocityX = _facingDirection * _moveSpeed;
+        else if (_enemyMovementState == EnemyMovementState.Idle)
+            _rb.linearVelocityX = 0;
+    }
+
+    private void EnemyAttackBehavior()
+    {
+
+        if (hollowAttack.attackTarget.GetComponent<Playercontroller>()._starStateAvailable == StarStateAvailable.False)
+        {
+            hollowAttack.attackTarget = null;
+            _enemyActionState = EnemyActionState.Idle;
+            return;
+        }
+            
+        _enemyAttackTime += Time.deltaTime;
+        
+        if (((gameObject.transform.position.x > hollowAttack.attackTarget.gameObject.transform.position.x) &&
+             (_facingDirection == 1)))
+        {
+            Flip();
+        }
+
+        if (((gameObject.transform.position.x < hollowAttack.attackTarget.gameObject.transform.position.x) &&
+             (_facingDirection == -1)))
+        {
+            Flip();
+        }
+        if ((Mathf.Abs(gameObject.transform.position.x - hollowAttack.attackTarget.gameObject.transform.position.x) >=
+            enemyAttackRange))
+        {
+            _rb.linearVelocityX = _facingDirection * _moveSpeed;
+            
+        }
+        else
+        {
+            if (_enemyAttackTime >= _enemyAttackTimer)EnemyAttack();
+        }
+    }
+
+    private void EnemyAttack()
+    {
+        _animator.SetInteger("ActionId",1);
+        _animator.SetTrigger("ActionTrigger");
+        _enemyAttackTime = 0;
+    }
+    
+    private void Flip()
+    {
+        
+        transform.rotation = Quaternion.Euler(0, (_facingDirection == 1 ? 180 : 0), 0);
+        _facingDirection = (_facingDirection *-1);
+      
+        
+    }
+
+    public void SetActionState()
+    {
+        if (_enemyActionState == EnemyActionState.Attack)
+        {
+            _enemyActionState = EnemyActionState.Idle;
+        }
+
+        else
+        {
+            _enemyActionState = EnemyActionState.Attack;
+        }
+            
+    }
+
+    #endregion
+
+    #region Animator
+
+    private void MovementValueAnimator()
+    {
+        _animator.SetFloat("MovementValue", Math.Abs(_rb.linearVelocityX));
+    }
+
+    #endregion
+
+    #region Raycasts
+
+    private bool RayCastWallCheck()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(
+            ((Vector2)transform.position + (new Vector2(wallCheckStart.x * _facingDirection, wallCheckStart.y))),
+            (Vector2.right * _facingDirection),
+            enemyWallDetection,
+            groundAndWallLayerMask);
+        
+        return !hit.collider;
+    }
+
+    #endregion
+
+    #region Gizmos
+
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(
+            (Vector2)transform.position + (new Vector2(wallCheckStart.x * _facingDirection, wallCheckStart.y)),
+            ((Vector2)transform.position + (new Vector2(wallCheckStart.x * _facingDirection, wallCheckStart.y)) +
+             Vector2.right * _facingDirection * enemyWallDetection));
+    }
+
+    #endregion
+}

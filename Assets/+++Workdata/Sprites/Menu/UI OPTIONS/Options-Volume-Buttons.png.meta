@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 9d3639f540f19d8409337ee648c47fd7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4887879177008290353
+    second: Options-Volume-Buttons_0
+  - first:
+      213: -770387486615989135
+    second: Options-Volume-Buttons_1
+  - first:
+      213: 1513104657244070562
+    second: Options-Volume-Buttons_2
+  - first:
+      213: -1982462667615040992
+    second: Options-Volume-Buttons_3
+  - first:
+      213: -5979487283924731130
+    second: Options-Volume-Buttons_4
+  - first:
+      213: 8622707310673344946
+    second: Options-Volume-Buttons_5
+  - first:
+      213: -6616476300878163862
+    second: Options-Volume-Buttons_6
+  - first:
+      213: 3455112593205397611
+    second: Options-Volume-Buttons_7
+  - first:
+      213: -1022495578188211246
+    second: Options-Volume-Buttons_8
+  - first:
+      213: 4938559344862741161
+    second: Options-Volume-Buttons_9
+  - first:
+      213: -2314077891577047969
+    second: Options-Volume-Buttons_10
+  - first:
+      213: -4747152038402588539
+    second: Options-Volume-Buttons_11
+  - first:
+      213: 1161354309067797832
+    second: Options-Volume-Buttons_12
+  - first:
+      213: -616981004242122380
+    second: Options-Volume-Buttons_13
+  - first:
+      213: 2380919587172723957
+    second: Options-Volume-Buttons_14
+  - first:
+      213: 4002382559049612570
+    second: Options-Volume-Buttons_15
+  - first:
+      213: -7959242798565092555
+    second: Options-Volume-Buttons_16
+  - first:
+      213: 1803488166042956900
+    second: Options-Volume-Buttons_17
+  - first:
+      213: 3981788519739214161
+    second: Options-Volume-Buttons_18
+  - first:
+      213: -1380695849551426869
+    second: Options-Volume-Buttons_19
+  - first:
+      213: -925917553368967370
+    second: Options-Volume-Buttons_20
+  - first:
+      213: 1175911191171509884
+    second: Options-Volume-Buttons_21
+  - first:
+      213: -5468959156443722220
+    second: Options-Volume-Buttons_22
+  - first:
+      213: -1190849392391734628
+    second: Options-Volume-Buttons_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Options-Volume-Buttons_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 161
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13a9b92e63c35d340800000000000000
+      internalID: 4887879177008290353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options-Volume-Buttons_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 2
+        width: 161
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17419d0a9a80f45f0800000000000000
+      internalID: -770387486615989135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options-Volume-Buttons_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a2a5034ba0aff410800000000000000
+      internalID: 1513104657244070562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options-Volume-Buttons_3
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 160
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a055415b0ec74e0800000000000000
+      internalID: -1982462667615040992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options-Volume-Buttons_5
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 94
+        width: 165
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b939de2d920aa770800000000000000
+      internalID: 8622707310673344946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options-Volume-Buttons_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 69
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 845fa5a4795fd1010800000000000000
+      internalID: 1161354309067797832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options-Volume-Buttons_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 68
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fc2338ffb9ba0120800000000000000
+      internalID: 2380919587172723957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Options-Volume-Buttons_15
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 68
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1dfe5f5bb15b8730800000000000000
+      internalID: 4002382559049612570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 37a311bd20273374798e3f46d5147179
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Options-Volume-Buttons_0: 4887879177008290353
+      Options-Volume-Buttons_1: -770387486615989135
+      Options-Volume-Buttons_10: -2314077891577047969
+      Options-Volume-Buttons_11: -4747152038402588539
+      Options-Volume-Buttons_12: 1161354309067797832
+      Options-Volume-Buttons_13: -616981004242122380
+      Options-Volume-Buttons_14: 2380919587172723957
+      Options-Volume-Buttons_15: 4002382559049612570
+      Options-Volume-Buttons_16: -7959242798565092555
+      Options-Volume-Buttons_17: 1803488166042956900
+      Options-Volume-Buttons_18: 3981788519739214161
+      Options-Volume-Buttons_19: -1380695849551426869
+      Options-Volume-Buttons_2: 1513104657244070562
+      Options-Volume-Buttons_20: -925917553368967370
+      Options-Volume-Buttons_21: 1175911191171509884
+      Options-Volume-Buttons_22: -5468959156443722220
+      Options-Volume-Buttons_23: -1190849392391734628
+      Options-Volume-Buttons_24: 26162553
+      Options-Volume-Buttons_3: -1982462667615040992
+      Options-Volume-Buttons_4: -5979487283924731130
+      Options-Volume-Buttons_5: 8622707310673344946
+      Options-Volume-Buttons_6: -6616476300878163862
+      Options-Volume-Buttons_7: 3455112593205397611
+      Options-Volume-Buttons_8: -1022495578188211246
+      Options-Volume-Buttons_9: 4938559344862741161
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
