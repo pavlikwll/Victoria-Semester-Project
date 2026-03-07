@@ -10,6 +10,8 @@ public class Dialogue : MonoBehaviour
 {
     public enum Speakers
      {Victoria, NPC}
+
+    public static Dialogue currentDialogue; //da die buttons mehrfach belegt sind, muss er checken, welchen dialog er skippen oder beenden soll
     
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
@@ -20,10 +22,9 @@ public class Dialogue : MonoBehaviour
     public GameObject portraitNPC;
 
     public List<string> dialogueLines;
+    public List<Speakers> speakerOrder; //muss gleich lang zu dialogueLines sein -> inspector
 
     public int dialogueIndex;
-    
-    private bool dialogueActive;
     private int currentLine;
     
     public Playercontroller playercontroller;
@@ -32,79 +33,79 @@ public class Dialogue : MonoBehaviour
     
     public void StartDialogue()
     {
-        dialogueActive = true;
+        currentDialogue = this;
+        currentLine = 0;
         
         dialoguePanel.SetActive(true);
-        currentLine = 0;
+        skipButton.SetActive(true);
+
+        playercontroller.DisablePlayerImput(); // not my typo, gez. Ronja
+
+        ShowCurrentLine();
         
         //StartCoroutine(AutoDialogue()); //kam beim dialog nicht so gut wie gedacht
         
-        dialogueText.SetText(dialogueLines[currentLine]);
-        Speakers currentSpeaker = GetCurrentSpeaker(currentLine); //soll den aktuellen sprecher ermitteln
-        UpdatePortrait(currentSpeaker); //um dann das passende bild zu zeigen
-        
-        playercontroller.DisablePlayerImput();
-        
-        skipButton.SetActive(true);
+        skipButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        skipButton.GetComponent<Button>().onClick.AddListener(SkipDialogue);
+        endButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        endButton.GetComponent<Button>().onClick.AddListener(EndDialogue);
     }
- 
-    /*IEnumerator AutoDialogue()
+
+    private void ShowCurrentLine()
     {
-        while (currentLine < dialogueLines.Count)
+        if (currentLine >= 0 && currentLine < dialogueLines.Count)
         {
             dialogueText.SetText(dialogueLines[currentLine]);
-            Speakers currentSpeaker = GetCurrentSpeaker(currentLine); //soll den aktuellen sprecher ermitteln
-            UpdatePortrait(currentSpeaker); //um dann das passende bild zu zeigen
-            
-            currentLine++; //dialog geht um einen weiter
-
-            yield return new WaitForSeconds(5f); //zeigt automatisch nach 5 sekunden die nächste dialogzeile
+            UpdatePortrait(speakerOrder[currentLine]);
         }
-        skipButton.SetActive(false);
-        endButton.SetActive(true);
-    }*/
+    }
 
     public void SkipDialogue()
     {
-        currentLine++; //dialog geht um einen weiter
-        dialogueText.SetText(dialogueLines[currentLine]);
-        Speakers currentSpeaker = GetCurrentSpeaker(currentLine); //soll den aktuellen sprecher ermitteln
-        UpdatePortrait(currentSpeaker); //um dann das passende bild zu zeigen
-
-
         if (currentLine >= dialogueLines.Count - 1)
         {
-        skipButton.SetActive(false);
-        endButton.SetActive(true);
-        }   
-}
-
+            skipButton.SetActive(false);
+            endButton.SetActive(true);
+            return;
+        }
+        
+        currentLine++; //dialog geht um einen weiter
+        ShowCurrentLine();
+    }
+    
     public void EndDialogue()
     {
-        
-        dialogueActive = false;
-        
         dialogueText.SetText("");
         dialoguePanel.SetActive(false);
         endButton.SetActive(false);
         skipButton.SetActive(false);
+        portraitVictoria.SetActive(false);
+        portraitNPC.SetActive(false);
    
-        playercontroller.EnablePlayerImput();
+        playercontroller.EnablePlayerImput(); //typo wasnt me
+        
+        currentDialogue = null;
     }
-
-    void UpdatePortrait(Speakers currentSpeaker)
-    {
-        portraitVictoria.SetActive(currentSpeaker == Speakers.Victoria); //setzt dialogbild für victoria
-        portraitNPC.SetActive(currentSpeaker == Speakers.NPC); //setzt dialogbild für npc
-    }
-
-    public Speakers GetCurrentSpeaker(int currentLine) //bestimmt den Sprecher
-    {
-        if (currentLine % 2 == 0)
-            return Speakers.Victoria; //start mit Victoria, weil sie anspricht
-        else
-        {
-            return Speakers.NPC; //player und npc wechseln sich ab
-        }
-    }
+    
+    private void UpdatePortrait(Speakers currentSpeaker)
+         {
+             portraitVictoria.SetActive(currentSpeaker == Speakers.Victoria); //setzt dialogbild für victoria
+             portraitNPC.SetActive(currentSpeaker == Speakers.NPC); //setzt dialogbild für npc
+         }
+    
+    /*IEnumerator AutoDialogue() //sah beim dialog nicht so gut aus - auto weiterlauf der textzeilen
+              {
+                  while (currentLine < dialogueLines.Count)
+                  {
+                      dialogueText.SetText(dialogueLines[currentLine]);
+                      Speakers currentSpeaker = GetCurrentSpeaker(currentLine); //soll den aktuellen sprecher ermitteln
+                      UpdatePortrait(currentSpeaker); //um dann das passende bild zu zeigen
+                      
+                      currentLine++; //dialog geht um einen weiter
+          
+                      yield return new WaitForSeconds(5f); //zeigt automatisch nach 5 sekunden die nächste dialogzeile
+                  }
+                  skipButton.SetActive(false);
+                  endButton.SetActive(true);
+              }*/
 }

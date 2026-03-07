@@ -7539,11 +7539,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5788682820453930306, guid: 8fe5e213d34ea4a8f9ae45591e7e7f52, type: 3}
   m_PrefabInstance: {fileID: 395520477}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &261472096 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7711731317169353910, guid: d6a7205e229fb1e4d8b63c3f9aebda78, type: 3}
-  m_PrefabInstance: {fileID: 1955255785124911168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &281284639
 GameObject:
   m_ObjectHideFlags: 0
@@ -7579,12 +7574,12 @@ MonoBehaviour:
   dialogContainer: {fileID: 504249669}
   playercontroller: {fileID: 475316820}
   dialog_0_1: {fileID: 1579714691}
-  dialog_0_2: {fileID: 2095335104}
-  dialog_0_3: {fileID: 1175763745}
-  dialog_0_4: {fileID: 322712457}
-  dialog_0_5: {fileID: 261472096}
-  dialog_0_6: {fileID: 682774284}
-  dialog_0_7: {fileID: 1346418616}
+  dialog_0_2: {fileID: 0}
+  dialog_0_3: {fileID: 0}
+  dialog_0_4: {fileID: 0}
+  dialog_0_5: {fileID: 0}
+  dialog_0_6: {fileID: 0}
+  dialog_0_7: {fileID: 0}
   dialogImageVictoria: {fileID: 1035214883}
   dialogImageStar: {fileID: 1750120756}
 --- !u!4 &281284641
@@ -7671,11 +7666,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fe5e213d34ea4a8f9ae45591e7e7f52, type: 3}
---- !u!1 &322712457 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2989765991910728480, guid: d6a7205e229fb1e4d8b63c3f9aebda78, type: 3}
-  m_PrefabInstance: {fileID: 1955255785124911168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &382287950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21344,11 +21334,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &682774284 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4809466193223421973, guid: d6a7205e229fb1e4d8b63c3f9aebda78, type: 3}
-  m_PrefabInstance: {fileID: 1955255785124911168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &703410471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5788682820453930306, guid: 8fe5e213d34ea4a8f9ae45591e7e7f52, type: 3}
@@ -29864,11 +29849,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5581867497452074511, guid: 93b452c6d3c43a343830c7b67a741530, type: 3}
   m_PrefabInstance: {fileID: 6314338966294137524}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1175763745 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3677607405932834348, guid: d6a7205e229fb1e4d8b63c3f9aebda78, type: 3}
-  m_PrefabInstance: {fileID: 1955255785124911168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1199398186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5788682820453930306, guid: 8fe5e213d34ea4a8f9ae45591e7e7f52, type: 3}
@@ -37262,11 +37242,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.5074693}
   m_EdgeRadius: 0
---- !u!1 &1346418616 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3452952090337576119, guid: d6a7205e229fb1e4d8b63c3f9aebda78, type: 3}
-  m_PrefabInstance: {fileID: 1955255785124911168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1359098406
 GameObject:
   m_ObjectHideFlags: 0
@@ -70715,11 +70690,6 @@ SpriteRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2334239966104714274, guid: 64017aa2285964e5b92e3ad11dfcd863, type: 3}
   m_PrefabInstance: {fileID: 382287950}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2095335104 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5321350930578607755, guid: d6a7205e229fb1e4d8b63c3f9aebda78, type: 3}
-  m_PrefabInstance: {fileID: 1955255785124911168}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1955255785124911168
 PrefabInstance:
