@@ -21,7 +21,7 @@ public class Cutscenes : MonoBehaviour
 
   private IEnumerator PanelStartDelay()
 {
-  yield return new WaitForSeconds(6f);
+  yield return new WaitForSeconds(4f);
   OpenPanel();
 }
 
