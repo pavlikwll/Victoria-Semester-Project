@@ -10,7 +10,8 @@ public class CutsceneAndDialogeLevel1 : MonoBehaviour
     public GameObject cutscene4;
     private int cutsceneIndex;
     public Playercontroller playercontroller;
-    public GameObject dialogueContainer;
+    
+    /*public GameObject dialogueContainer;
     public GameObject dialogueButton1;
     public GameObject dialogueButton2;
     private int dialogueIndex1;
@@ -35,13 +36,13 @@ public class CutsceneAndDialogeLevel1 : MonoBehaviour
     public GameObject dialogue18;
     public GameObject dialoqueImageVictoria;
     public GameObject dialogueImageAlfred;
-    public GameObject dialogueImageSchneider;
+    public GameObject dialogueImageSchneider;*/
 
     private void Start()
     {
         playercontroller.DisablePlayerImput();
-        dialogueIndex1 = 0;
-        dialogueIndex2 = 0;
+        //dialogueIndex1 = 0;
+        //dialogueIndex2 = 0;
         cutsceneIndex = 0;
         DisplayCutscene();
     }
@@ -109,7 +110,7 @@ public class CutsceneAndDialogeLevel1 : MonoBehaviour
         cutsceneIndex = 0;
     }
     #endregion
-
+/*
     #region Dialogue 1
 
     public void DisplayDialogue1()
@@ -376,7 +377,7 @@ public class CutsceneAndDialogeLevel1 : MonoBehaviour
     
     #endregion
     
-    
+    */
     
     
 }

@@ -11,6 +11,12 @@ public class Sch_Quest : MonoBehaviour
     [Header("Reward")]
     public GameObject partObject;   // off
 
+    [Header("Dialogue")]
+    public Dialogue dialogueNoPrism;
+    public Dialogue dialoguePrismCollected;
+
+    public GameObject prism;
+
     public void InteractWithSch()
     {
         if (!quest.webCleaned)
@@ -30,5 +36,18 @@ public class Sch_Quest : MonoBehaviour
         {
             partObject.SetActive(true);
         }
+    }
+
+    public void DialogueInteraction()
+    {
+        if (prism != null && prism.activeInHierarchy)
+        {
+            dialogueNoPrism.StartDialogue();
+        }
+        else
+        {
+            dialoguePrismCollected.StartDialogue();
+        }
+
     }
 }
