@@ -52,14 +52,14 @@ MonoBehaviour:
   _facingDirection: 1
   _enemyMovementState: 0
   _enemyActionState: 0
-  wallCheckStart: {x: 0.5, y: 0}
+  wallCheckStart: {x: 0.92, y: 0.24}
   enemyWallDetection: 0.2
   groundAndWallLayerMask:
     serializedVersion: 2
     m_Bits: 64
   hollowAttack: {fileID: 6592335112306979174}
   enemyAttackRange: 3
-  ledgeCheckStart: {x: 0.5, y: -0.2}
+  ledgeCheckStart: {x: 0.82, y: 0.68}
   ledgeCheckDistance: 0.8
 --- !u!50 &7100659061607127232
 Rigidbody2D:
@@ -166,7 +166,7 @@ Transform:
   m_GameObject: {fileID: 1895081377042808977}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0000003427267, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -216,7 +216,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -461069183270240653, guid: b31fbce3e11f84d8d9798a34897af4be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
