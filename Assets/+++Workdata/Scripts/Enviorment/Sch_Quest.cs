@@ -12,10 +12,10 @@ public class Sch_Quest : MonoBehaviour
     public GameObject partObject;   // off
 
     [Header("Dialogue")]
-    public Dialogue dialogueNoPrism;
-    public Dialogue dialoguePrismCollected;
+    public Dialogue dialogueNotCollected;
+    public Dialogue dialogueCollected;
 
-    public GameObject prism;
+    public GameObject collectible;
 
     public void InteractWithSch()
     {
@@ -40,13 +40,13 @@ public class Sch_Quest : MonoBehaviour
 
     public void DialogueInteraction()
     {
-        if (prism != null && prism.activeInHierarchy)
+        if (collectible != null && collectible.activeInHierarchy)
         {
-            dialogueNoPrism.StartDialogue();
+            dialogueNotCollected.StartDialogue();
         }
         else
         {
-            dialoguePrismCollected.StartDialogue();
+            dialogueCollected.StartDialogue();
         }
 
     }
