@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6888475887402750818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4048787489756254295}
+  - component: {fileID: 6355733986909353220}
+  m_Layer: 0
+  m_Name: DialogueSchneider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4048787489756254295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888475887402750818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6355733986909353220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888475887402750818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9aaf5f7580b86943b429b89e9a31a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  endButton: {fileID: 0}
+  skipButton: {fileID: 0}
+  portraitVictoria: {fileID: 0}
+  portraitNPC: {fileID: 0}
+  dialogueLines:
+  - "Victoria: Igitt, \xFCberall diese Spinnennetze!"
+  - 'Schneider: Wie bitte!?'
+  - "Victoria: \xC4hm, ich meinte..."
+  - 'Schneider: Ach, alles gut, meine LIebe! Ich bin Schneider. Hallo erstmal! Wie
+    kommts, dass uns hier endlich mal jemand besucht?'
+  - "Victoria: Ich muss hoch zur Sternwarte, um diesen Stern wieder in den Himmel
+    schicken zu k\xF6nnen!"
+  - "Schneider: Oh, das scheint wohl nicht so oft zu passieren... Ich k\xF6nnte dir
+    den Weg nach oben zeigen!"
+  - 'Victoria: Oh ja bitte!'
+  - 'Schneider: ....unter einer Bedingung.'
+  - 'Victoria: ...'
+  - "Schneider: Bringe mir doch bitte meine B\xFCrste, dass ich die ganzen st\xF6renden
+    Weben hier entfernen kann. Du findest sie sicher schneller als ich ."
+  dialogueIndex: 0
+  playercontroller: {fileID: 0}
