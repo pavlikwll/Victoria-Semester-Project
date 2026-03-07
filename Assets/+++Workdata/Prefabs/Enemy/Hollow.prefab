@@ -52,13 +52,15 @@ MonoBehaviour:
   _facingDirection: 1
   _enemyMovementState: 0
   _enemyActionState: 0
-  wallCheckStart: {x: 1, y: 1}
-  enemyWallDetection: 1.5
+  wallCheckStart: {x: 0.5, y: 0}
+  enemyWallDetection: 0.2
   groundAndWallLayerMask:
     serializedVersion: 2
     m_Bits: 64
   hollowAttack: {fileID: 6592335112306979174}
   enemyAttackRange: 3
+  ledgeCheckStart: {x: 0.5, y: -0.2}
+  ledgeCheckDistance: 0.8
 --- !u!50 &7100659061607127232
 Rigidbody2D:
   serializedVersion: 5
@@ -135,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ca641f7c42321479e9717b0ecb3203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentHP: 0
   _maxHP: 100
 --- !u!1 &1895081377042808977
 GameObject:

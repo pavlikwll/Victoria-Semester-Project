@@ -23,6 +23,8 @@ public class HollowMovement : MonoBehaviour
     [SerializeField]private LayerMask groundAndWallLayerMask;
     [SerializeField]private HollowAttack hollowAttack;
     [SerializeField]private float enemyAttackRange;
+    [SerializeField] private Vector2 ledgeCheckStart;
+    [SerializeField] private float ledgeCheckDistance = 1f;
     private float _enemyMovementTimer;
     private float _enemyIdleTime;
     private float _enemyAttackTimer;
@@ -67,17 +69,6 @@ public class HollowMovement : MonoBehaviour
         }
 
         MovementValueAnimator();
-        
-            
-        
-
-        
-        
-        
-        
-       
-        
-        
     }
 
     #endregion
@@ -86,13 +77,10 @@ public class HollowMovement : MonoBehaviour
 
     private void EnemyIdleBehavior()
     {
-        _enemyIdleTime  += Time.deltaTime;
-        if (!RayCastWallCheck())
-        {
-            Flip();
-        }
-        
+        _enemyIdleTime += Time.deltaTime;
+
         if (_enemyIdleTime >= _enemyMovementTimer)
+        {
             if (_enemyMovementState == EnemyMovementState.Idle)
             {
                 _enemyMovementState = EnemyMovementState.Move;
@@ -103,10 +91,26 @@ public class HollowMovement : MonoBehaviour
                 _enemyMovementState = EnemyMovementState.Idle;
                 _enemyIdleTime = 0;
             }
+        }
+
         if (_enemyMovementState == EnemyMovementState.Move)
+        {
+            bool wallAhead = !RayCastWallCheck();
+            bool groundAhead = GroundAheadCheck();
+
+            if (wallAhead || !groundAhead)
+            {
+                _rb.linearVelocityX = 0;
+                Flip();
+                return;
+            }
+
             _rb.linearVelocityX = _facingDirection * _moveSpeed;
+        }
         else if (_enemyMovementState == EnemyMovementState.Idle)
+        {
             _rb.linearVelocityX = 0;
+        }
     }
 
     private void EnemyAttackBehavior()
@@ -135,26 +139,35 @@ public class HollowMovement : MonoBehaviour
             
         _enemyAttackTime += Time.deltaTime;
         
-        if (((gameObject.transform.position.x > hollowAttack.attackTarget.gameObject.transform.position.x) &&
-             (_facingDirection == 1)))
+        if ((transform.position.x > hollowAttack.attackTarget.transform.position.x) && (_facingDirection == 1))
         {
             Flip();
         }
 
-        if (((gameObject.transform.position.x < hollowAttack.attackTarget.gameObject.transform.position.x) &&
-             (_facingDirection == -1)))
+        if ((transform.position.x < hollowAttack.attackTarget.transform.position.x) && (_facingDirection == -1))
         {
             Flip();
         }
-        if ((Mathf.Abs(gameObject.transform.position.x - hollowAttack.attackTarget.gameObject.transform.position.x) >=
-            enemyAttackRange))
+
+        bool wallAhead = !RayCastWallCheck();
+        bool groundAhead = GroundAheadCheck();
+
+        if (wallAhead || !groundAhead)
+        {
+            _rb.linearVelocityX = 0;
+            Flip();
+            return;
+        }
+
+        if (Mathf.Abs(transform.position.x - hollowAttack.attackTarget.transform.position.x) >= enemyAttackRange)
         {
             _rb.linearVelocityX = _facingDirection * _moveSpeed;
-            
         }
         else
         {
-            if (_enemyAttackTime >= _enemyAttackTimer)EnemyAttack();
+            _rb.linearVelocityX = 0;
+            if (_enemyAttackTime >= _enemyAttackTimer)
+                EnemyAttack();
         }
     }
 
@@ -203,13 +216,16 @@ public class HollowMovement : MonoBehaviour
 
     private bool RayCastWallCheck()
     {
-        RaycastHit2D hit = Physics2D.Raycast(
-            ((Vector2)transform.position + (new Vector2(wallCheckStart.x * _facingDirection, wallCheckStart.y))),
-            (Vector2.right * _facingDirection),
-            enemyWallDetection,
-            groundAndWallLayerMask);
-        
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + new Vector2(wallCheckStart.x * _facingDirection, wallCheckStart.y), Vector2.right * _facingDirection, enemyWallDetection, groundAndWallLayerMask);
+
         return !hit.collider;
+    }
+
+    private bool GroundAheadCheck()
+    {
+        RaycastHit2D hit = Physics2D.Raycast( (Vector2)transform.position + new Vector2(ledgeCheckStart.x * _facingDirection, ledgeCheckStart.y), Vector2.down, ledgeCheckDistance, groundAndWallLayerMask);
+
+        return hit.collider != null;
     }
 
     #endregion
@@ -218,13 +234,11 @@ public class HollowMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(
-            (Vector2)transform.position + (new Vector2(wallCheckStart.x * _facingDirection, wallCheckStart.y)),
-            ((Vector2)transform.position + (new Vector2(wallCheckStart.x * _facingDirection, wallCheckStart.y)) +
-             Vector2.right * _facingDirection * enemyWallDetection));
-    }
+        Gizmos.DrawLine((Vector2)transform.position + new Vector2(wallCheckStart.x * _facingDirection, wallCheckStart.y), (Vector2)transform.position + new Vector2(wallCheckStart.x * _facingDirection, wallCheckStart.y) + Vector2.right * _facingDirection * enemyWallDetection);
 
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine((Vector2)transform.position + new Vector2(ledgeCheckStart.x * _facingDirection, ledgeCheckStart.y), (Vector2)transform.position + new Vector2(ledgeCheckStart.x * _facingDirection, ledgeCheckStart.y) + Vector2.down * ledgeCheckDistance);
+    }
     #endregion
 }
