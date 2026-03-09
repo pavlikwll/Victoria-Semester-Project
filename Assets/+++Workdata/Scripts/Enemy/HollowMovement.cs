@@ -25,6 +25,8 @@ public class HollowMovement : MonoBehaviour
     [SerializeField]private float enemyAttackRange;
     [SerializeField] private Vector2 ledgeCheckStart;
     [SerializeField] private float ledgeCheckDistance = 1f;
+    [SerializeField] private float loseTargetDelay = 2f;
+    private float _loseTargetTimer;
     private float _enemyMovementTimer;
     private float _enemyIdleTime;
     private float _enemyAttackTimer;
@@ -49,9 +51,7 @@ public class HollowMovement : MonoBehaviour
         _moveSpeed = 5;
         _enemyAttackTime = 0;
         _enemyAttackTimer = 3;
-
-
-
+        _loseTargetTimer = 0f;
     }
 
     private void FixedUpdate()
@@ -132,9 +132,19 @@ public class HollowMovement : MonoBehaviour
 
         if (player._starStateAvailable == StarStateAvailable.False)
         {
-            hollowAttack.attackTarget = null;
-            _enemyActionState = EnemyActionState.Idle;
+            _loseTargetTimer += Time.deltaTime;
+
+            if (_loseTargetTimer >= loseTargetDelay)
+            {
+                hollowAttack.attackTarget = null;
+                _enemyActionState = EnemyActionState.Idle;
+                _loseTargetTimer = 0f;
+            }
             return;
+        }
+        else
+        {
+            _loseTargetTimer = 0f;
         }
             
         _enemyAttackTime += Time.deltaTime;

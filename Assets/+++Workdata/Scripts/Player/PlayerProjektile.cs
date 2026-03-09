@@ -34,14 +34,16 @@ public class PlayerProjektile : MonoBehaviour
    public void ProjektileAttack(Vector2 direction, Playercontroller playercontroller)
    {
       //print(direction);
-      _playercontroller=playercontroller;
+      _playercontroller = playercontroller;
       _projectileRigidBody.AddForce(direction * projectileSpeed, ForceMode2D.Impulse);
-      if (direction == Vector2.left)
+      if (direction.x < 0)
       {
-        
+         transform.rotation = Quaternion.Euler(0, 180, 0);
       }
-      
-      
+      else
+      {
+         transform.rotation = Quaternion.Euler(0, 0, 0);
+      }
    }
 
    private void FixedUpdate()
@@ -56,7 +58,7 @@ public class PlayerProjektile : MonoBehaviour
       if (other.CompareTag("Ground")) ProjectileDestruction();
       if (other.CompareTag("Enemy"))
       {
-         other.gameObject.GetComponent<EnemyHP>().TakeDmg(projectileDamage);
+         other.gameObject.GetComponent<EnemyHP>().TakePurification(projectileDamage);
       }
       //if (collision.gameObject.CompareTag("Enemy"))
          //collision.gameObject.GetComponent<EnemyHp(_projectileDamage)>();

@@ -34,6 +34,7 @@ public class Playercontroller : MonoBehaviour
    [SerializeField]private GameObject _projectileSpawn;// Spawnpunkt des Projektils
    [SerializeField]private GameObject _projectilePrefab;// Projektil-Prefab
    public StarStateAvailable _starStateAvailable;// Ob das Projektil verfügbar ist
+   [SerializeField] private GameObject _starObject;
    
    [Header("PlayerInteractions")]
    [SerializeField]private PlayerPlatformHandler playerPlatformHandler;// Plattform-Logik wie ausm Untericht
@@ -247,10 +248,20 @@ public class Playercontroller : MonoBehaviour
       if (_starStateAvailable == StarStateAvailable.True)
       {
          _starStateAvailable = StarStateAvailable.False;
+         
+         if (_starObject != null)
+         {
+            _starObject.SetActive(false);
+         }
       }
       else
       {
          _starStateAvailable = StarStateAvailable.True;
+         if (_starObject != null)
+         {
+            _starObject.transform.position = transform.position;
+            _starObject.SetActive(true);
+         }
       }
    }
 
